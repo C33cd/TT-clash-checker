@@ -19,4 +19,3 @@ if __name__ == '__main__':
     ec1.mainchecker(cdcs, 'TIMETABLE - II SEMESTER 2024 -25_removed.xlsx')
     ec1.mainchecker(cs_cdcs, 'DRAFT TIMETABLE (2).xlsx')
 
-
