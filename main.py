@@ -3,7 +3,7 @@ if __name__ == '__main__':
     # creating excel checker object:
     ec1 = excelChecker.ExcelChecker()
 
-    cs_cdcs = ['CS F211', 'CS F241', 'CS F212', 'BITS F225']
+    cs_cdcs = ['CS F301', 'CS F342', 'CS F351', 'CS F372']
 
     # defining cdcs array
     cdcs = ['ECON F341', 'ECON F342', 'ECON F343']
@@ -16,6 +16,7 @@ if __name__ == '__main__':
     # 'CHEM F111'
     # 'CS F211', 'CS F241', 'CS F212', 'ECON F341', 'ECON F342', 'ECON F343' -> Msc Eco + CS CDCs
 
-    ec1.mainchecker(cdcs, 'TIMETABLE - II SEMESTER 2024 -25_removed.xlsx')
-    ec1.mainchecker(cs_cdcs, 'DRAFT TIMETABLE (2).xlsx')
+    # ec1.mainchecker(cdcs, 'TIMETABLE - II SEMESTER 2024 -25_removed.xlsx')
+    # ec1.mainchecker(cs_cdcs, 'DRAFT TIMETABLE (2).xlsx')
+    ec1.mainchecker(cs_cdcs, 'DRAFT TIMETABLE I SEM 2025 -26.xlsx')
 

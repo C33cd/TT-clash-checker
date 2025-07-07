@@ -77,6 +77,8 @@ class ExcelChecker:
                 # get lecture dates and times
                 lecture_days = str(ws.cell(row=i + j, column=10).value).split(' ')
                 lecture_times = str(ws.cell(row=i + j, column=11).value).split(' ')
+                print(i+j)
+                print(lecture_times)
                 # traverse through lecture_days, check if feasible to add
                 for day in lecture_days:
                     for time in lecture_times:
@@ -151,7 +153,7 @@ class ExcelChecker:
     # color code: Red = midsem/compre/class at same time as cdc, yellow = midsem/compre on same day as cdc
     # Assumption: CDCs are clash-free
     def mainchecker(self, cdcs: List[str], f_name: str):
-        timetable = [[True for x in range(5)] for y in range(10)]
+        timetable = [[True for x in range(5)] for y in range(12)]
         wb = load_workbook(filename=f_name)
         ws = wb.active
 
@@ -162,7 +164,17 @@ class ExcelChecker:
             # check the hours column and format accordingly:
             if ws.cell(row=i, column=11).value is not None:
                 val = str(ws.cell(row=i, column=11).value)
-                if len(val) == 3:
+                if len(val) == 4:
+                    if val[0]=='1':
+                        if val[1]<=val[0]:
+                            ws.cell(row=i, column=11).value = val[0] + val[1] + ' ' + val[2] + val[3]
+                        else:
+                            ws.cell(row=i, column=11).value = val[0] + ' ' + val[1] + ' ' + val[2] + val[3]
+                    elif val[2]=='1':
+                        ws.cell(row=i, column=11).value = val[0] + ' ' + val[1] + ' ' + val[2] + val[3]
+                    else:
+                        ws.cell(row=i, column=11).value = val[0] + val[1] + ' ' + val[2] + val[3]
+                elif len(val) == 3:
                     if val[1] == '1':
                         ws.cell(row=i, column=11).value = val[0] + ' ' + val[1] + val[2]
                     elif val[0] == '1':
