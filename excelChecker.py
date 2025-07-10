@@ -77,8 +77,6 @@ class ExcelChecker:
                 # get lecture dates and times
                 lecture_days = str(ws.cell(row=i + j, column=10).value).split(' ')
                 lecture_times = str(ws.cell(row=i + j, column=11).value).split(' ')
-                print(i+j)
-                print(lecture_times)
                 # traverse through lecture_days, check if feasible to add
                 for day in lecture_days:
                     for time in lecture_times:
